@@ -1,0 +1,6 @@
+Adding playwright in the project -> npm init playwright
+---------------------------------------------------------------
+Running playwright tests:
+1) npx playwright test --headed
+2) npx playwright test --headless
+3) npx playwright test
