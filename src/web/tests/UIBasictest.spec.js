@@ -20,7 +20,7 @@ test('Browser Playwright test', async ({browser})=> {
 
 // When you have multiple test cases and among them you want to run a specific test only, in that case you can use "test.only"
 
-test.only('page Playwright test', async ({page})=> {
+test('page Playwright test', async ({page})=> {
 
 // Negative Test Scenario
    
@@ -34,10 +34,41 @@ test.only('page Playwright test', async ({page})=> {
    await page.locator("[type='password']").fill("learning");
    await page.locator("#signInBtn").click();
 
-
    await page.locator("[style*='block']").textContent(); //.textContent() this method is used in playwright for extracting the text
 
    await expect(await page.locator("[style*='block']")).toContainText("Incorrect username/password"); //.toContainText method is used to validate expected text and actual error message
 
- 
- });
+  });
+
+  test.only('retrieving the product name', async ({browser})=> {
+
+   // Positive Test Scenario      
+         
+      const context = await browser.newContext();   
+      const page = await context.newPage();
+
+       // Parameterizing the variables 
+      const userName = page.locator("#username");
+      const password = page.locator("[type='password']");
+      const signInBtn = page.locator("#signInBtn");
+   
+      await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+      console.log(await page.title()); 
+      
+      //locators
+      await page.locator("#username").fill("rahulshetty");
+      await page.locator("[type='password']").fill("learn");
+      await page.locator("#signInBtn").click();
+
+      await userName.fill(""); // to erase or remove the content from a UI field we need to pass empty string in the .fill() method this will automatically erase the existing content
+      await password.fill("");
+      await userName.fill("rahulshettyacademy");
+      await password.fill("learning");
+      await signInBtn.click();
+
+      // Grabbing or retrieving the title of the first product in the e-commerce website
+
+      console.log(await page.locator(".card-body a").nth(0).textContent()); // .nth() method will convert the multiple web elements into an array and we have to provide the number of index inside .nth()
+      console.log(await page.locator(".card-body a").first().textContent());
+
+   });
