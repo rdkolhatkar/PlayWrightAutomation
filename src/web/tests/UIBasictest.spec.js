@@ -51,6 +51,7 @@ test('page Playwright test', async ({page})=> {
       const userName = page.locator("#username");
       const password = page.locator("[type='password']");
       const signInBtn = page.locator("#signInBtn");
+      const cardTitles = page.locator(".card-body a");
    
       await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
       console.log(await page.title()); 
@@ -70,5 +71,9 @@ test('page Playwright test', async ({page})=> {
 
       console.log(await page.locator(".card-body a").nth(0).textContent()); // .nth() method will convert the multiple web elements into an array and we have to provide the number of index inside .nth()
       console.log(await page.locator(".card-body a").first().textContent());
+
+      //  Grabbing or retrieving the all product titles present in the e-commerce website
+      const allProductList = await cardTitles.allTextContents(); //allTextContents() method retrives the array of titles of the products present in the website.
+      console.log(allProductList);
 
    });
