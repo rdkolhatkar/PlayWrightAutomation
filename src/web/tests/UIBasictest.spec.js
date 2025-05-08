@@ -40,7 +40,7 @@ test('page Playwright test', async ({page})=> {
 
   });
 
-  test.only('retrieving the product name', async ({browser})=> {
+  test('retrieving the product name', async ({browser})=> {
 
    // Positive Test Scenario      
          
@@ -77,3 +77,19 @@ test('page Playwright test', async ({page})=> {
       console.log(allProductList);
 
    });
+
+   test.only('UI Controls', async ({page})=> {
+      
+      await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+      const userName = page.locator("#username");
+      const password = page.locator("[type='password']");
+      const signInBtn = page.locator("#signInBtn");
+      // Selecting a value from static dropdown
+      const dropdown = page.locator("select.form-control"); 
+      await dropdown.selectOption("consult") // selectOption() is used to select value from static dropdown and inside this method you have to pass the attribute value which is '[value="consult"]' from the html code {<option value="consult">Consultant</option>}
+      page.pause(); // this method will pause the execution and open the Playwright Inspector window
+      // Selecting a radio button
+      await page.locator(".radiotextsty").last(); // last() method will select the last index of the multiple attributes return from the html xpath or css selector
+      // Verify radio button is selected or not
+
+      });
