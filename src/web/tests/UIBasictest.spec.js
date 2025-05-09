@@ -90,6 +90,14 @@ test('page Playwright test', async ({page})=> {
       page.pause(); // this method will pause the execution and open the Playwright Inspector window
       // Selecting a radio button
       await page.locator(".radiotextsty").last(); // last() method will select the last index of the multiple attributes return from the html xpath or css selector
-      // Verify radio button is selected or not
-
+      // Verify radio button is selected or not using assertion
+      //expect(await page.locator(".radiotextsty").last()).toBeChecked();
+      console.log(page.locator(".radiotextsty").last().isChecked()); // this method will return the boolean value like true/false
+      //UI CheckBox Element test
+      await page.locator("#terms").click();
+      expect( await page.locator("#terms").click()).toBeChecked();
+      // Method to un-check the CheckBox UI Element
+      await page.locator("#terms").uncheck();
+      // Assertion for uncheck() method of CheckBox
+      expect(await page.locator("#terms").isChecked()).toBeFalsy();
       });
