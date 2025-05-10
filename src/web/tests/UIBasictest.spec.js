@@ -84,6 +84,7 @@ test('page Playwright test', async ({page})=> {
       const userName = page.locator("#username");
       const password = page.locator("[type='password']");
       const signInBtn = page.locator("#signInBtn");
+      const documentLink = page.locator("[href*='documents-request']");
       // Selecting a value from static dropdown
       const dropdown = page.locator("select.form-control"); 
       await dropdown.selectOption("consult") // selectOption() is used to select value from static dropdown and inside this method you have to pass the attribute value which is '[value="consult"]' from the html code {<option value="consult">Consultant</option>}
@@ -95,9 +96,12 @@ test('page Playwright test', async ({page})=> {
       console.log(page.locator(".radiotextsty").last().isChecked()); // this method will return the boolean value like true/false
       //UI CheckBox Element test
       await page.locator("#terms").click();
-      expect( await page.locator("#terms").click()).toBeChecked();
+      await expect(page.locator("#terms")).toBeChecked();
       // Method to un-check the CheckBox UI Element
       await page.locator("#terms").uncheck();
       // Assertion for uncheck() method of CheckBox
       expect(await page.locator("#terms").isChecked()).toBeFalsy();
+      // There is a link on the Web UI which has a special previlage and that is due to the HTML Attribute class="blinkingText", Due to this attribute the Link will keep on blinking when you open the WebPage
+      // To test the blinking element on the webpage we have to check if the blinking attribute is present in the HTML code or not
+      await expect(documentLink).toHaveAttribute("class", "blinkingText");
       });
