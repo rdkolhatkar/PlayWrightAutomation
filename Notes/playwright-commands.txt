@@ -4,3 +4,4 @@ Running playwright tests:
 1) npx playwright test --headed
 2) npx playwright test --headless
 3) npx playwright test
+4) npx playwright test --debug
