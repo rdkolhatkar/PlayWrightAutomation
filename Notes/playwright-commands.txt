@@ -5,3 +5,4 @@ Running playwright tests:
 2) npx playwright test --headless
 3) npx playwright test
 4) npx playwright test --debug
+5) npx playwright codegen http://google.com  -> Record and Playback Automation {Command Syntax : npx playwright codegen [Web URL Link]}
