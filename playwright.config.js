@@ -45,7 +45,10 @@ const config = ({
     screenshot : 'on',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on',
+    //trace: 'on', 'off', 'retain-on-failure'
+
+    // Collecting traces for only failed test cases
+    trace: 'retain-on-failure',
   },
 
   /* Configure projects for major browsers */
