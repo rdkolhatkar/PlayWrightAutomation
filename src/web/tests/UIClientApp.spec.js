@@ -26,6 +26,10 @@ const {test, expect} = require('@playwright/test');
     break;
    }
   }
+  await page.locator("[routerlink*='cart']").click();
+  await page.locator("div li").first().waitFor(); //waitFor() method will wait until locator becomes visible on the UI Page
+  const bool = page.locator("h3:has-text('Zara Coat 4')").isVisible(); // "h3:has-text('Zara Coat 4')" This Syntax is for searching the element by text name this is called as pseudo class locator
+  expect(bool).toBeTruthy();
 
 
    });
