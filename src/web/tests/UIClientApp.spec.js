@@ -20,7 +20,7 @@ const {test, expect} = require('@playwright/test');
    const totalProductCount = products.count(); // count() method is used to count the total number of products present inside the 'products' array
 
   for(let i = 0; i < totalProductCount; i++){
-   if(await products.nth(i).locator("b").textContent() == productName){ //products.nth(i).locator("b") This method is called as chaining of locators Example: locator("parent").locator("child")
+   if(await products.nth(i).locator("b").textContent() === productName){ //products.nth(i).locator("b") This method is called as chaining of locators Example: locator("parent").locator("child")
     // Writing the Logic to add item to thr cart
     await products.nth(i).locator("text= Add To Cart").click();
     break;
@@ -30,6 +30,19 @@ const {test, expect} = require('@playwright/test');
   await page.locator("div li").first().waitFor(); //waitFor() method will wait until locator becomes visible on the UI Page
   const bool = page.locator("h3:has-text('Zara Coat 4')").isVisible(); // "h3:has-text('Zara Coat 4')" This Syntax is for searching the element by text name this is called as pseudo class locator
   expect(bool).toBeTruthy();
+  await page.locator("text=Checkout").click();
+  // Selecting Dynamic dropdown
+  await page.locator("[placeholder*='Country']").pressSequentially("ind");
+  const dropdown = page.locator(".ta-results");
+  await dropdown.waitFor();
+   const optionsCount = await dropdown.locator("button").count();
+   for(let i = 0; i < optionsCount; i++){
+   dropdownText = await dropdown.locator("button").nth(i).textContent();
+   if(dropdownText === " India"){
+     await dropdown.locator("button").nth(i).click();
+   }
+   break;
+   }
 
 
    });
