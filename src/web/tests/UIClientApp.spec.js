@@ -4,10 +4,12 @@ const {test, expect} = require('@playwright/test');
 
    const products = page.locator(".card-body");
    const productName = 'Zara Coat 4';
+   const email = 'anshika@gmail.com'
    await page.goto("https://rahulshettyacademy.com/client");
    await page.locator("#userEmail").fill("anshika@gmail.com");
    await page.locator("#userPassword").fill("Iamking@000");
    await page.locator("[value='Login']").click();
+
 
    await page.waitForLoadState('networkidle'); // waitForLoadState('networkidle') this method is used when you have to wait till all backend api calls are sucessfully completed and your web page is sucessfully updated with api response
 
@@ -40,9 +42,13 @@ const {test, expect} = require('@playwright/test');
    dropdownText = await dropdown.locator("button").nth(i).textContent();
    if(dropdownText === " India"){
      await dropdown.locator("button").nth(i).click();
+     break;
+   } 
    }
-   break;
-   }
-
+   expect(page.locator(".user_name [type='text']").first()).toHaveText(email);
+   await page.locator(".action__submit").click();
+   await expect(page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
+   const orderId = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
+   console.log(orderId);
 
    });
