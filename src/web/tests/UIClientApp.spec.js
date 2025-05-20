@@ -29,7 +29,7 @@ const {test, expect} = require('@playwright/test');
    }
   }
   await page.locator("[routerlink*='cart']").click();
-  await page.locator("div li").first().waitFor(); //waitFor() method will wait until locator becomes visible on the UI Page
+  await page.locator("div li").first().waitFor() //waitFor() method will wait until locator becomes visible on the UI Page
   const bool = page.locator("h3:has-text('Zara Coat 4')").isVisible(); // "h3:has-text('Zara Coat 4')" This Syntax is for searching the element by text name this is called as pseudo class locator
   expect(bool).toBeTruthy();
   await page.locator("text=Checkout").click();
@@ -50,5 +50,21 @@ const {test, expect} = require('@playwright/test');
    await expect(page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
    const orderId = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
    console.log(orderId);
+
+   await page.locator("button[routerlink*='myorders']").click();
+   const rows = await page.locator("tbody tr");
+
+   await page.locator("tbody tr").waitFor();
+
+   for(let i = 0; i < await rows.count(); ++i){
+    const roworderId = await rows.nth(i).locator("th").textContent();
+    if(orderId.includes(roworderId)){
+       await rows.nth(i).locator("button").first().click();
+       break;
+    }
+   }
+   const orderIdDetails = await page.locator(".col-text").textContent();
+   expect(orderId.includes(orderIdDetails)).toBeTruthy();
+
 
    });
