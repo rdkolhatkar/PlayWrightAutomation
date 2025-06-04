@@ -15,6 +15,12 @@ test.only("More validations", async({page}) => {
     await expect(page.locator("#displayed-text")).toBeVisible();
     await page.locator("#hide-textbox").click();
     await expect(page.locator("#displayed-text")).toBeHidden(); // This method is used to check if element is hidden or not    
-   
+   // Handaling Java Scripts Alerts
+   await page.locator("#confirmbtn").click();
+   page.on('dialog', dialog => dialog.accept()); // In Playwright we call the Alert as Dialog & dialog => dialog.accept() this method is used for accepting the alerts
+   //page.on('dialog', dialog => dialog.dismiss()); // dialog => dialog.dismiss() is used for Cancelling the Alerts
+
+   //Mouse Hover
+   await page.locator("#mousehover").hover(); //.hover() will perform the mouse hover action. 
     
 })
