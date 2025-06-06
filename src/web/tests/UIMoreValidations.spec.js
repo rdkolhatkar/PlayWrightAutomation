@@ -20,7 +20,13 @@ test.only("More validations", async({page}) => {
    page.on('dialog', dialog => dialog.accept()); // In Playwright we call the Alert as Dialog & dialog => dialog.accept() this method is used for accepting the alerts
    //page.on('dialog', dialog => dialog.dismiss()); // dialog => dialog.dismiss() is used for Cancelling the Alerts
 
-   //Mouse Hover
+   // Mouse Hover
    await page.locator("#mousehover").hover(); //.hover() will perform the mouse hover action. 
+
+   // Handaling I Frames on the Web Page
+   const framesPage = page.frameLocator("#courses-iframe"); //With this method we have switched to child frame and stored that in an constant to access the elements present inside the frame
+   await framesPage.locator("li a[href*='lifetime-access']:visible").click() // "li a[href*='lifetime-access']:visible" in this xpath ':visible' is used as concatination with original x path to exclude the hidden elements. this is applicable in playwright only.
+   const textCheck = await framesPage.locator(".text h2").textContent();
+   console.log(textCheck.split(" ")[1]);
     
 })
