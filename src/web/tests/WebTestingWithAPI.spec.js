@@ -1,6 +1,7 @@
 const {test, expect, request} = require('@playwright/test')//request function is used for WebAPI testing
 
 const loginPayload = {userEmail: "anshika@gmail.com", userPassword: "Iamking@000"}; // This is JavaScript Object
+let LoginToken; // let is Javascript method for initializing global value.
 // .beforeAll() method will perform the specific task like Login to the website and other stuff before once executing the entire test suite.
   test.beforeAll(  async ()=> {
     const apiContext = await request.newContext();
@@ -11,8 +12,9 @@ const loginPayload = {userEmail: "anshika@gmail.com", userPassword: "Iamking@000
             headers:{"content-type": "application/json"}
         });
     expect((loginResponse).ok).toBeTruthy();
-    const loginResponseJson = loginResponse.json();//extracting token from the api response and parsing the token
-    const LoginToken = loginResponseJson.token;
+    const loginResponseJson = await loginResponse.json();//extracting token from the api response and parsing the token
+    LoginToken = loginResponseJson.token;
+    console.log(LoginToken);
 
   });
 
@@ -22,13 +24,18 @@ const loginPayload = {userEmail: "anshika@gmail.com", userPassword: "Iamking@000
   });
  
   test ('UI Client APP Testing', async ({page})=> {
-
+  // .addInitScript() playwright method is used for Adding or Injecting external JavaScript inside the other methods as an Existing Function and execute that function inside the methods
+   page.addInitScript(
+    value =>{ 
+    window.localStorage.setItem('token', value);
+   }, LoginToken 
+  );
    const products = page.locator(".card-body");
    const productName = 'Zara Coat 4';
+   await page.goto("https://rahulshettyacademy.com/client/");
    const email = 'anshika@gmail.com'
    /*
    // We can skip the below test cases for Login by introducing the API, So with this api we don't have to do login for every time when we execute new test cse
-   await page.goto("https://rahulshettyacademy.com/client");
    await page.locator("#userEmail").fill("anshika@gmail.com");
    await page.locator("#userPassword").fill("Iamking@000");
    await page.locator("[value='Login']").click();
