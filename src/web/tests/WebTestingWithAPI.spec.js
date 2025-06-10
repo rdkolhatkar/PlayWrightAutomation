@@ -97,5 +97,7 @@ let LoginToken; // let is Javascript method for initializing global value.
    const orderIdDetails = await page.locator(".col-text").textContent();
    expect(orderId.includes(orderIdDetails)).toBeTruthy();
 
+   // Verify if order created is showing in the history page
+   // Precondition -> create an order -> Use API to create order
 
    });
