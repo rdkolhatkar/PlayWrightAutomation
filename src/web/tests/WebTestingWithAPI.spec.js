@@ -1,9 +1,12 @@
 const {test, expect, request} = require('@playwright/test')//request function is used for WebAPI testing
 
 const loginPayload = {userEmail: "anshika@gmail.com", userPassword: "Iamking@000"}; // This is JavaScript Object
+const orderPayload = {orders: [{country:"India",productOrderedId:"62023a7616fcf72fe9dfc619"}]};
 let LoginToken; // let is Javascript method for initializing global value.
+let orderId;
 // .beforeAll() method will perform the specific task like Login to the website and other stuff before once executing the entire test suite.
   test.beforeAll(  async ()=> {
+    // Login API
     const apiContext = await request.newContext();
     const loginResponse = await apiContext.post(
         "https://rahulshettyacademy.com/api/ecom/auth/login",
@@ -15,6 +18,19 @@ let LoginToken; // let is Javascript method for initializing global value.
     const loginResponseJson = await loginResponse.json();//extracting token from the api response and parsing the token
     LoginToken = loginResponseJson.token;
     console.log(LoginToken);
+
+    // Order API
+    const orderResponse = await apiContext.post("https://rahulshettyacademy.com/api/ecom/order/create-order",
+      {
+          data:orderPayload,
+          headers:  {
+                      'Authorization': LoginToken,
+                      'content-type'': ''application/json'
+                    }
+      }
+    )
+    const orderResponseJson = await orderResponse.json();
+    orderId = orderResponseJson.orders[0];
 
   });
 
@@ -34,14 +50,14 @@ let LoginToken; // let is Javascript method for initializing global value.
    const productName = 'Zara Coat 4';
    await page.goto("https://rahulshettyacademy.com/client/");
    const email = 'anshika@gmail.com'
-   /*
+/*
    // We can skip the below test cases for Login by introducing the API, So with this api we don't have to do login for every time when we execute new test cse
    await page.locator("#userEmail").fill("anshika@gmail.com");
    await page.locator("#userPassword").fill("Iamking@000");
    await page.locator("[value='Login']").click();
-   */
-
-
+*/
+// Below code is replaced with Order API
+/*
    await page.waitForLoadState('networkidle'); // waitForLoadState('networkidle') this method is used when you have to wait till all backend api calls are sucessfully completed and your web page is sucessfully updated with api response
 
    await page.locator(".card-body b").first().waitFor(); //.waitFor() method will only work when our locators are returning single element. It will not wait in case our locators are returning multiple elements
@@ -79,7 +95,8 @@ let LoginToken; // let is Javascript method for initializing global value.
    expect(page.locator(".user_name [type='text']").first()).toHaveText(email);
    await page.locator(".action__submit").click();
    await expect(page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
-   const orderId = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
+*/
+   orderId = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
    console.log(orderId);
 
    await page.locator("button[routerlink*='myorders']").click();
