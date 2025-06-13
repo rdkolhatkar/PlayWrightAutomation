@@ -25,7 +25,7 @@ let orderId;
           data:orderPayload,
           headers:  {
                       'Authorization': LoginToken,
-                      'content-type'': ''application/json'
+                      'content-type': 'application/json'
                     }
       }
     )
