@@ -9,3 +9,9 @@ Running playwright tests:
 6) npx playwright test --ui
 ----------------------------------------------------------------
 Debug: Debug npm Script : To call Debug npm Script inside the VS Code press = Ctrl + Shift + P
+----------------------------------------------------------------
+Creating New Project called Excel Utility & Installing the exceljs dependency in it
+1) mkdir ExcelJsUtil -> Creating new Project Folder
+2) cd ExcelJsUtil -> Going inside the new directory
+3) npm init -> Installing Node Module
+4) npm install exceljs --savedev -> Installing exceljs dependency & Saving the dependency into the 'package.json' file
