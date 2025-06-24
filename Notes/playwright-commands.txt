@@ -18,5 +18,5 @@ Creating New Project called Excel Utility & Installing the exceljs dependency in
 ------------------------------------------------------------------
 NodeJS execution commands
 1) npm install
-2)  node src/JavaScriptTestUtils/code/excelDemo.js
+2) node src/JavaScriptTest/code/excelDemo.js
 ------------------------------------------------------------------
