@@ -15,3 +15,8 @@ Creating New Project called Excel Utility & Installing the exceljs dependency in
 2) cd ExcelJsUtil -> Going inside the new directory
 3) npm init -> Installing Node Module
 4) npm install exceljs --savedev -> Installing exceljs dependency & Saving the dependency into the 'package.json' file
+------------------------------------------------------------------
+NodeJS execution commands
+1) npm install
+2)  node src/JavaScriptTestUtils/code/excelDemo.js
+------------------------------------------------------------------
