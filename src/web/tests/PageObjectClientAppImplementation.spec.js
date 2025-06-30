@@ -1,9 +1,9 @@
 const { test, expect } = require('@playwright/test');
 const { LoginPageClientApp } = require('../pageObjects/LoginPageClientApp');
+const { ClientAppDashboardPage } = require('../pageObjects/ClientAppDashboardPage');
 
 test.only('UI Client APP Testing', async ({ page }) => {
 
-    const products = page.locator(".card-body");
     const productName = 'Zara Coat 4';
     const email = "anshika@gmail.com";
     const username = "anshika@gmail.com";
@@ -11,27 +11,14 @@ test.only('UI Client APP Testing', async ({ page }) => {
 
     // Creating the Object of LoginPageClientApp class
     const loginPageClientApp = new LoginPageClientApp(page);
-    loginPageClientApp.navigateToClientApp();
-    loginPageClientApp.validLogin(username, password);
+    await loginPageClientApp.navigateToClientApp();
+    await loginPageClientApp.validLogin(username, password);
 
+    // Ceating the object of ClientAppDashboardPage class
+    const clientAppDashboardPage = new ClientAppDashboardPage(page);
+    await clientAppDashboardPage.searchProduct(productName);
+    await clientAppDashboardPage.navigateToCart();
 
-    await page.waitForLoadState('networkidle');
-
-    await page.locator(".card-body b").first().waitFor();
-    const titles = await page.locator(".card-body b").allTextContents();
-
-    console.log(titles);
-
-    const totalProductCount = products.count();
-
-    for (let i = 0; i < totalProductCount; i++) {
-        if (await products.nth(i).locator("b").textContent() === productName) {
-
-            await products.nth(i).locator("text= Add To Cart").click();
-            break;
-        }
-    }
-    await page.locator("[routerlink*='cart']").click();
     await page.locator("div li").first().waitFor()
     const bool = page.locator("h3:has-text('Zara Coat 4')").isVisible();
     expect(bool).toBeTruthy();

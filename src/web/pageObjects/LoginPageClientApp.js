@@ -13,6 +13,7 @@ class LoginPageClientApp {
         await this.userName.fill(username);
         await this.loginPassword.fill(password);
         await this.signInButton.click();
+        await this.page.waitForLoadState('networkidle');
     }
 };
 module.exports = { LoginPageClientApp };
