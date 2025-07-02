@@ -1,0 +1,13 @@
+{
+    "user": {
+        "profile": {
+            "userId": "abc123",
+            "name": "John Doe"
+        }
+    },
+    "search": {
+        "criteria": {
+            "searchQuery": "Playwright automation"
+        }
+    }
+}
