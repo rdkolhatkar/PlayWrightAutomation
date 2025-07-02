@@ -1,18 +1,33 @@
 const { LoginPageClientApp } = require('../pageObjects/LoginPageClientApp');
 const { ClientAppDashboardPage } = require('../pageObjects/ClientAppDashboardPage');
 class PageObjectManager {
-    constructor(page){
+    constructor(page) {
         this.page = page;
         this.loginPageClientApp = new LoginPageClientApp(page);
         this.clientAppDashboardPage = new ClientAppDashboardPage(page);
+        this.ordersHistoryPage = new OrdersHistoryPage(this.page);
+        this.ordersReviewPage = new OrdersReviewPage(this.page);
+        this.cartPage = new CartPage(this.page);
     }
 
-    getLoginPage(){
+    getLoginPage() {
         return this.loginPageClientApp;
     }
 
-    getDashboardPage(){
+    getDashboardPage() {
         return this.clientAppDashboardPage;
     }
+
+    getOrdersHistoryPage() {
+        return this.ordersHistoryPage;
+    }
+
+    getOrdersReviewPage() {
+        return this.ordersReviewPage;
+    }
+
+    getCartPage() {
+        return this.cartPage;
+    }
 }
-module.exports = {PageObjectManager};
+module.exports = { PageObjectManager };
