@@ -21,3 +21,8 @@ NodeJS execution commands
 2) node src/JavaScriptTest/code/excelDemo.js
 3) node src/JavaScriptTest/code/extractingExcelData.js
 ------------------------------------------------------------------
+Running PlayWright Tests with Custom Configuration Files
+1) npx playwright test <name of the test file>.spec.js --config <name of the custom configuration file>.config.js
+Example:  npx playwright test UIClientApp.spec.js --config testPlayWright.config.js
+2) npx playwright test <name of the test file>.spec.js --config <name of the custom configuration file>.config.js --project=safari -> Command to invoke the safari browser from config file.
+Example:  npx playwright test UIClientApp.spec.js --config testPlayWright.config.js --project=safari
