@@ -38,7 +38,8 @@ const config = ({
         browserName: 'webkit', // setting the browswe name
         headless: true,
         screenshot: 'off',
-        trace: 'retain-on-failure',
+        trace: 'retain-on-failure',       
+        ...devices['iPhone 11'], // This syntax will let us select the test execution based on the devices like iPhone 11 or any other versions of iPhone
       }
     },
     {
@@ -47,58 +48,15 @@ const config = ({
         browserName: 'chromium', // setting the browswe name
         headless: false,
         screenshot: 'on',
+        video: 'retain-on-failure', // This syntax will allow us to record the video of the test execution only when test fails.
+        ignoreHttpsErrors: true, // This syntax is used for handling the SSL certification errors while opening the URL
+        permissions:['geolocation'], // This syntax is used to accept the popup which tells us to allow location access.
         trace: 'on',
+        viewport : {width:720,height:720} // This syntax will open the browser in {width:720,height:720} this dimention.
       }
     },
-
+    // Note: viewport and ...devices syntax should not be used at the same time, because they will override each other
   ],
-
-  /* Configure projects for major browsers */
-
-  // projects: [c
-  //   {
-  //     name: 'chromium',
-  //     use: { ...devices['Desktop Chrome'] },
-  //   },
-
-  //   {
-  //     name: 'firefox',
-  //     use: { ...devices['Desktop Firefox'] },
-  //   },
-
-  //   {
-  //     name: 'webkit',
-  //     use: { ...devices['Desktop Safari'] },
-  //   },
-
-  /* Test against mobile viewports. */
-  // {
-  //   name: 'Mobile Chrome',
-  //   use: { ...devices['Pixel 5'] },
-  // },
-  // {
-  //   name: 'Mobile Safari',
-  //   use: { ...devices['iPhone 12'] },
-  // },
-
-  /* Test against branded browsers. */
-  // {
-  //   name: 'Microsoft Edge',
-  //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-  // },
-  // {
-  //   name: 'Google Chrome',
-  //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-  // },
-  // ],
-
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://127.0.0.1:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
 });
 module.exports = config
 
