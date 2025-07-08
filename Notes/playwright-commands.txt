@@ -26,3 +26,14 @@ Running PlayWright Tests with Custom Configuration Files
 Example:  npx playwright test UIClientApp.spec.js --config testPlayWright.config.js
 2) npx playwright test <name of the test file>.spec.js --config <name of the custom configuration file>.config.js --project=safari -> Command to invoke the safari browser from config file.
 Example:  npx playwright test UIClientApp.spec.js --config testPlayWright.config.js --project=safari
+----------------------------------------------------------------------
+Running UI Automation Tests in Series and Parallel
+By default the different tests present in the one single spec.js file will run in Series
+By default if we run the entire folder in our case src/web/tests then all the different test scenario files will run in Parallel manner
+By default Paywright supports running tests in Parallel
+1) Running tests in Parallel manner -> Example: npx playwright test src/web/tests
+2) Running tests in Series manner -> Example: npx playwright test UIClientApp.spec.js
+3) Running 5 tests file in paralllel -> Example: npx playwright test src/web/tests --config testPlayWright.config.js
+-----------------------------------------------------------------------
+Running UI Automation test in Parallel manner for single spec.js file
+Here we are making the code changes so that different tests present in the same spec.js file will be getting executed in parallel manner

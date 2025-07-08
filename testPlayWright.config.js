@@ -20,7 +20,10 @@ const config = ({
   // Retry Flaky Tests, We are using the below syntax to execute retry logic for the test execution
   retries: 2,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  // We use the below syntax to change the test execution pattern like test execution in series and test execution in parallel manner
+  // By setting up the workers as one we are disabling the parallel test execution { workers: 1 }
+  // If we set the workers as two then playwright will run two spec.js files in parallel and like that we can set the number of files that we want to run in parallel
+  workers: 5,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   // This syntax is used for defining multiple properties related to the project
