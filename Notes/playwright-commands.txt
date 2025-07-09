@@ -37,3 +37,6 @@ By default Paywright supports running tests in Parallel
 -----------------------------------------------------------------------
 Running UI Automation test in Parallel manner for single spec.js file
 Here we are making the code changes so that different tests present in the same spec.js file will be getting executed in parallel manner
+----------------------------------------------------------------------
+Playwright command to run a specific test with unique test tag 
+1) npx playwright test --grep @Web -> this command will search for the '@Web' tag in all .spec.js files and run the files which have '@Web' present in the test description

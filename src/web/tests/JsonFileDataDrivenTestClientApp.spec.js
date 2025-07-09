@@ -3,7 +3,9 @@ const { POManager } = require('../pageObjects/PageObjectManager');
 // To use Json File as JavaScript Object First we have to convert it in the String format and after that we have to convert that String into JavaScript Object
 const JsonDataSet = JSON.parse(JSON.stringify(require('./src/web/data/TestData.json')));
 
-test('Client App login', async ({ page }) => {
+// There are different Tags in playwright. In Playwright, tags are used to organize, filter, and selectively run tests. They act as labels that allow you to categorize tests based on different criteria, such as functionality, browser type, or testing phase. This enables efficient test execution and reporting, allowing you to focus on specific test subsets when needed
+
+test(' @Web Client App login', async ({ page }) => {
     const poManager = new POManager(page);
     const loginPage = poManager.getLoginPage();
     await loginPage.goTo();

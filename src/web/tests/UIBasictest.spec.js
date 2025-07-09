@@ -136,5 +136,36 @@ test.only('Handling Child Windows', async ({ browser }) => {
    // Now we have to go back to the first window page tab to enter the username
    await page.locator("#username").fill(domain);
    await page.pause();
+});
 
+// test.skip is used for skipping the test from the test suite
+test.skip('windoe handle', async ({ browser }) => {
+   //Handling child windows will naviage you to the new tab of the UI Web page
+   const context = await browser.newContext();
+   const page = await context.newPage();
+   const userName = page.locator("#username");
+   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+   const documentLink = page.locator("[href*='documents-request']");
+   //For Handline multile windows we have to use PlayWright browser context method
+
+   const [newPage] = await Promise.all( //Here newPage is a return type
+      [
+         context.waitForEvent('page'), //waitForEvent() this method is an event listener which will check if new page is opening and it will wait till it gets opened
+         //By using this context.waitForEvent('page') we are promising an Event that will happen with new UI page tab. So it has three types those are new page promis pending, rejected & fulfilled
+         // in this case {await context.waitForEvent('page')} this synchrinization using await won't work because we are waiting for the new event to be fulfilled after the method documentLink.click()
+         // To to run both methods parallely we will use Promise.all() before these two methods [context.waitForEvent('page') & documentLink.click()]
+         documentLink.click(),
+         // When we click on documentLink it will open a separate web page. So we have to provide the context of this new page which will open after clicking on the link
+      ]
+   )
+   const text = await newPage.locator(".red").textContent();
+   console.log(text);
+   // Now we have to pull out the email id from the extracted text present inside {const text = await newPage.locator(".red").textContent()} this method and we have to pass it as username
+   // Splitting the text
+   const arrayText = text.split("@");
+   const domain = arrayText[1].split(" ")[0];
+   console.log(domain);
+   // Now we have to go back to the first window page tab to enter the username
+   await page.locator("#username").fill(domain);
+   await page.pause();
 });
