@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test('Sample API GET request test', async ({ request }) => {
+test('@API Sample API GET request test', async ({ request }) => {
   const response = await request.get('https://jsonplaceholder.typicode.com/posts/1');
 
   // Check status code

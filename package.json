@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test ApiUtilitiesForWebTesting.spec.js --headed"
+    "test": "npx playwright test ApiUtilitiesForWebTesting.spec.js --headed",
+    "regression": "npx playwright test",
+    "webTests": "npx playwright test --grep @Web",
+    "apiTests": "npx playwright test --grep @API",
+    "newConfigFileTest": "npx playwright test --config=testPlayWright.config.js --project=chrome"
   },
   "keywords": [],
   "author": "",
@@ -12,8 +16,9 @@
   "devDependencies": {
     "@playwright/test": "^1.52.0",
     "@types/node": "^22.14.1",
+    "allure-playwright": "^3.3.0",
+    "exceljs": "^4.4.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3",
-    "exceljs": "^4.4.0"
+    "typescript": "^5.8.3"
   }
 }
