@@ -40,3 +40,11 @@ Here we are making the code changes so that different tests present in the same 
 ----------------------------------------------------------------------
 Playwright command to run a specific test with unique test tag 
 1) npx playwright test --grep @Web -> this command will search for the '@Web' tag in all .spec.js files and run the files which have '@Web' present in the test description
+----------------------------------------------------------------------
+To do the clean build for playwright project we use below commnads in sequence
+1) npm cache clean --force
+2) rm -rf node_modules
+3) rm -rf package-lock.json
+4) npm install
+5) npx playwright install
+---------------------------------------------------------------------

@@ -1,7 +1,17 @@
 const { test, expect } = require('@playwright/test');
 const { POManager } = require('../pageObjects/PageObjectManager');
 // To use Json File as JavaScript Object First we have to convert it in the String format and after that we have to convert that String into JavaScript Object
-const JsonDataSet = JSON.parse(JSON.stringify(require('./src/web/data/TestData.json')));
+const path = require('path');
+const fs = require('fs');
+const jsonFilePath = path.resolve(__dirname, '../data/TestData.json');
+const JsonDataSet = JSON.parse(JSON.stringify(fs.readFileSync(jsonFilePath, 'utf-8')));
+console.log(JsonDataSet);
+
+// For Json Array Data Driven Test
+const jsonArrayFilePath = path.resolve(__dirname, '../data/JsonArrayTestData.json');
+const JsonArrayDataSet = JSON.parse(fs.readFileSync(jsonArrayFilePath, 'utf-8'));
+console.log(JsonArrayDataSet);
+
 
 // There are different Tags in playwright. In Playwright, tags are used to organize, filter, and selectively run tests. They act as labels that allow you to categorize tests based on different criteria, such as functionality, browser type, or testing phase. This enables efficient test execution and reporting, allowing you to focus on specific test subsets when needed
 
@@ -32,7 +42,7 @@ test(' @Web Client App login', async ({ page }) => {
 // To pass the Array of Json data we have to use the for loop and wrap out test inside it.
 // ${data.productName} this syntax will dynamically fetch the product name and pass it inside the test case name for test differentiation
 // ${data.productName} To use this syntax we have to give `` these tilt quotes
-for(const data of JsonDataSet){
+for(const data of JsonArrayDataSet){
 test(`Json Array Data Driven Test For ${data.productName}`, async ({ page }) => {
     const poManager = new POManager(page);
     const loginPage = poManager.getLoginPage();
