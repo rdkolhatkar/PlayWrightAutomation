@@ -60,3 +60,8 @@ To open allure reports use command: allure open ./allure-report
 Commands to run the tests from package.json file
 1) npm run <Name of the script mentioned in the scripts section of the package.json file>
 Example: npm rum webTests
+-----------------------------------------------------------------------
+Install Jenkins
+1) Go to the website "https://www.jenkins.io/download/"
+2) Download jenkins.war file
+3) run the command "java -jar jenkins.war -httpPort=9090"
