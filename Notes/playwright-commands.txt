@@ -64,4 +64,7 @@ Example: npm rum webTests
 Install Jenkins
 1) Go to the website "https://www.jenkins.io/download/"
 2) Download jenkins.war file
-3) run the command "java -jar jenkins.war -httpPort=9090"
+3) run the command "java -jar jenkins.war --httpPort=9081"
+4) Access Jenkins at: http://localhost:9081
+5) If you want Jenkins to use a fixed home path (instead of defaulting to .jenkins in your user folder):
+Command: java -DJENKINS_HOME="D:\JenkinsHome" -jar jenkins.war --httpPort=9081
