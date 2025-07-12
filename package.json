@@ -8,7 +8,7 @@
     "webTests": "npx playwright test --grep @Web",
     "apiTests": "npx playwright test --grep @API",
     "newConfigFileTest": "npx playwright test --config=testPlayWright.config.js --project=chrome",
-    "smoke": "npx playwright test UIBasictest.spec.js --headless"
+    "smoke": "npx playwright test UIBasictest.spec.js"
   },
   "keywords": [],
   "author": "",
