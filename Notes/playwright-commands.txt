@@ -68,3 +68,18 @@ Install Jenkins
 4) Access Jenkins at: http://localhost:9081
 5) If you want Jenkins to use a fixed home path (instead of defaulting to .jenkins in your user folder):
 Command: java -DJENKINS_HOME="D:\JenkinsHome" -jar jenkins.war --httpPort=9081
+-----------------------------------------------------------------------
+To run the project on Jenkins We will be using below commands for Execute shell
+1) npm install
+2) npx playwright install
+3) npm run smoke
+------------------------------------------------------------------------
+To run the project on Jenkins with parameterized scripts below commands are used for Execute shell
+npm install
+npx playwright install
+npm run "$Script"
+------------------------------------------------------------------------
+To run the project on Jenkins with parameterized scripts below commands are used for Execute Windows batch command
+npm install
+npx playwright install
+npm run "%Script"
