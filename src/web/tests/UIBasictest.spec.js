@@ -107,7 +107,7 @@ test('UI Controls', async ({ page }) => {
    await expect(documentLink).toHaveAttribute("class", "blinkingText");
 });
 
-test.only('Handling Child Windows', async ({ browser }) => {
+test('Handling Child Windows', async ({ browser }) => {
    //Handling child windows will naviage you to the new tab of the UI Web page
    const context = await browser.newContext();
    const page = await context.newPage();
