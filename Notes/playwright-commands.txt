@@ -83,3 +83,12 @@ To run the project on Jenkins with parameterized scripts below commands are used
 npm install
 npx playwright install
 npm run "%Script"
+--------------------------------------------------------------------------
+Installing TypeScript to the project
+1) Go to the website "https://www.npmjs.com/package/typescript"
+2) npm install --save-dev typescript
+3) Create demo.ts typescript file.
+4) To run the ".ts" typescript file first we need to convert it into JavaScript file.
+5) To run any JavaScript file with ".js" extension we use command as : node example.js
+6) To convert any typescript file with ".ts" into JavaScript file we use command as: npx tsc src/TypeScriptTest/code/demo.ts
+7) Now it will create one demo.js file which we can run with node command : node src/TypeScriptTest/code/demo.js
