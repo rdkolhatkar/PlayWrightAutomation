@@ -1,5 +1,8 @@
 const { LoginPageClientApp } = require('../pageObjects/LoginPageClientApp');
 const { ClientAppDashboardPage } = require('../pageObjects/ClientAppDashboardPage');
+const { OrdersHistoryPage } = require('../pageObjects/OrdersHistoryPage');
+const { OrdersReviewPage } = require('../pageObjects/OrdersReviewPage');
+const { CartPage } = require('../pageObjects/CartPage');
 class PageObjectManager {
     constructor(page) {
         this.page = page;

@@ -92,3 +92,6 @@ Installing TypeScript to the project
 5) To run any JavaScript file with ".js" extension we use command as : node example.js
 6) To convert any typescript file with ".ts" into JavaScript file we use command as: npx tsc src/TypeScriptTest/code/demo.ts
 7) Now it will create one demo.js file which we can run with node command : node src/TypeScriptTest/code/demo.js
+---------------------------------------------------------------------------
+Running TypeScript Test File
+1) npx playwright test src/TypeScriptTest/web/tests/PageObjectEndToEndClientApp.spec.ts

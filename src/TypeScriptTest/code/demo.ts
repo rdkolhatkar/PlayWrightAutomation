@@ -1,3 +1,5 @@
+import { expect, type Locator, type Page } from "@playwright/test";
+
 let message : string = "Hello World"; // Type Script syntax for declaring string variable
 console.log(message);
 let age : number = 20; // Type Script syntax for declaring integer variable
@@ -14,3 +16,24 @@ data = [1,2,3];
 console.log(data);
 data = true; 
 console.log(data);
+// Defining a function
+function add(a : number, b : number): number
+{
+    return a + b
+}
+console.log(add(3,4));
+// Creating an Object
+let user: {name:string, age:number} = {name: "Raghav", age: 45};
+// Creating class in the typescript
+class CartPage {
+    page: Page;
+    cartProducts: Locator;
+    constructor(page: any) {
+        this.page = page;
+        this.cartProducts = page.locator("div li").first();
+        // this.productsText = page.locator(".card-body b");
+        // this.cart = page.locator("[routerlink*='cart']");
+        // this.orders = page.locator("button[routerlink*='myorders']");
+        // this.checkout = page.locator("text=Checkout");
+    }
+}
