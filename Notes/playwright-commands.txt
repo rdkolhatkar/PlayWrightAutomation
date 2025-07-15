@@ -95,3 +95,4 @@ Installing TypeScript to the project
 ---------------------------------------------------------------------------
 Running TypeScript Test File
 1) npx playwright test src/TypeScriptTest/web/tests/PageObjectEndToEndClientApp.spec.ts
+------------------------------------------------------------------------------
