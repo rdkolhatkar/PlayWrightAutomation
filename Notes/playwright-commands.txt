@@ -96,3 +96,7 @@ Installing TypeScript to the project
 Running TypeScript Test File
 1) npx playwright test src/TypeScriptTest/web/tests/PageObjectEndToEndClientApp.spec.ts
 ------------------------------------------------------------------------------
+Running BDD cucumber scenarios through PlayWright
+1) Navigate to 'bdd' folder -> cd src/bdd
+2) After changing directory to "bdd" run command -> npm install
+3) To run cucumber feature file we are using the command -> npx cucumber-js
