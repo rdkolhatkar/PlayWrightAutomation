@@ -9,21 +9,20 @@
     "apiTests": "npx playwright test --grep @API",
     "newConfigFileTest": "npx playwright test --config=testPlayWright.config.js --project=chrome",
     "smoke": "npx playwright test UIBasictest.spec.js",
-    "acceptance": "npx playwright test UIBasictest.spec.js"
+    "acceptance": "npx playwright test UIBasictest.spec.js",
+    "test:bdd": "cucumber-js --config cucumber.config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@cucumber/cucumber": "^12.0.0",
     "@playwright/test": "^1.52.0",
     "@types/node": "^22.14.1",
     "allure-playwright": "^3.3.0",
     "exceljs": "^4.4.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
-  },
-  "dependencies": {
-    "@cucumber/cucumber": "^12.0.0"
   }
 }
