@@ -1,0 +1,25 @@
+{
+  "editor.formatOnSave": true,
+  "playwright.reuseBrowser": true,
+
+  // Cucumber JS settings for JavaScript
+  "cucumber.features": [
+    "src/bdd/features/*.feature"
+  ],
+  "cucumber.glue": [
+    "src/bdd/stepDefinitions/*.js"
+  ],
+
+  // JavaScript-specific formatting
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+
+  // Remove TypeScript-specific settings
+  "editor.fontSize": 16,
+  "tabnine.experimentalAutoImports": true,
+  "workbench.colorTheme": "Visual Studio Light",
+  "terminal.integrated.fontSize": 16,
+  "editor.minimap.enabled": false,
+  "editor.comments.ignoreEmptyLines": false
+}
