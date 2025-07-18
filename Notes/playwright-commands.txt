@@ -100,3 +100,8 @@ Running BDD cucumber scenarios through PlayWright
 1) Navigate to 'bdd' folder -> cd src/bdd
 2) After changing directory to "bdd" run command -> npm install
 3) To run cucumber feature file we are using the command -> npx cucumber-js
+------------------------------------------------------------------------------
+Running BDD cucumber Scenarios through "cucumber.js" file
+1) Navigate to main directory cd /d/PlayWrightAutomation
+2) Add command inside "Scripts" section inside "package.json" ->   "test:bdd": "cucumber-js"
+3) Run command from terminal ->  npm run test:bdd
