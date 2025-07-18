@@ -1,11 +1,11 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
-const { playwright } = require('@playwright/test'); // This syntax is required for calling the browser context to invoke the browser page
+const playwright = require('@playwright/test'); // This syntax is required for calling the browser context to invoke the browser page
 const assert = require('assert');
 const { expect } = require('@playwright/test');
 const { PageObjectManager } = require('../../web/pageObjects/PageObjectManager');
 
 
-Given('Login to ecommerce Website with {string} and {string}', async function (username, password) {
+Given('Login to ecommerce Website with {string} and {string}', {timeout : 100*1000}, async function (username, password) {
     // Navigating to Client APP login page 
     const browser = playwright.chromium.launch();
     const context = await browser.newContext();
@@ -19,8 +19,8 @@ When('Add item {string} to the cart', async function (productName) {
     // Adding item to the cart 
     // const poManager = new PageObjectManager(page);
     this.dashboardPage = this.poManager.getDashboardPage();
-    await dashboardPage.searchProductAddCart(productName);
-    await dashboardPage.navigateToCart();
+    await this.dashboardPage.searchProductAddCart(productName);
+    await this.dashboardPage.navigateToCart();
 
 });
 Then('Verify item {string} is displayed in the Cart page', async function (productName) {

@@ -105,3 +105,4 @@ Running BDD cucumber Scenarios through "cucumber.js" file
 1) Navigate to main directory cd /d/PlayWrightAutomation
 2) Add command inside "Scripts" section inside "package.json" ->   "test:bdd": "cucumber-js"
 3) Run command from terminal ->  npm run test:bdd
+4) npm run test:bdd --exit
