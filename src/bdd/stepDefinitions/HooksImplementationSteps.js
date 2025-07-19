@@ -1,19 +1,11 @@
-/*
 const { Given, When, Then } = require('@cucumber/cucumber');
 const playwright = require('@playwright/test'); // This syntax is required for calling the browser context to invoke the browser page
 const assert = require('assert');
 const { expect } = require('@playwright/test');
 const { PageObjectManager } = require('../../web/pageObjects/PageObjectManager');
 
-
+// In this file we are implementing the Hooks
 Given('Login to ecommerce Website with {string} and {string}', {timeout : 100*1000}, async function (username, password) {
-    // Navigating to Client APP login page 
-    const browser = await playwright.chromium.launch({
-        headless: false
-    });
-    const context = await browser.newContext();
-    const page = await context.newPage();
-    this.poManager = new PageObjectManager(page); // This line of code is called as World Constructor for Step Definitions
     const loginPage = this.poManager.getLoginPage();
     await loginPage.navigateToClientApp();
     await loginPage.validLogin(username, password);
@@ -24,7 +16,6 @@ When('Add item {string} to the cart', async function (productName) {
     this.dashboardPage = this.poManager.getDashboardPage();
     await this.dashboardPage.searchProduct(productName);
     await this.dashboardPage.navigateToCart();
-
 });
 Then('Verify item {string} is displayed in the Cart page', async function (productName) {
     // Checking the item in the cart 
@@ -49,4 +40,4 @@ Then('Verify order is present in the OrderHistory page', async function () {
     await ordersHistoryPage.searchOrderAndSelect(orderId);
     expect(orderId.includes(await ordersHistoryPage.getOrderId())).toBeTruthy();
 });
-*/
+
