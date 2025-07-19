@@ -7,7 +7,9 @@ const { PageObjectManager } = require('../../web/pageObjects/PageObjectManager')
 
 Given('Login to ecommerce Website with {string} and {string}', {timeout : 100*1000}, async function (username, password) {
     // Navigating to Client APP login page 
-    const browser = playwright.chromium.launch();
+    const browser = await playwright.chromium.launch({
+        headless: false
+    });
     const context = await browser.newContext();
     const page = await context.newPage();
     this.poManager = new PageObjectManager(page); // This line of code is called as World Constructor for Step Definitions
@@ -19,21 +21,21 @@ When('Add item {string} to the cart', async function (productName) {
     // Adding item to the cart 
     // const poManager = new PageObjectManager(page);
     this.dashboardPage = this.poManager.getDashboardPage();
-    await this.dashboardPage.searchProductAddCart(productName);
+    await this.dashboardPage.searchProduct(productName);
     await this.dashboardPage.navigateToCart();
 
 });
 Then('Verify item {string} is displayed in the Cart page', async function (productName) {
     // Checking the item in the cart 
     // const poManager = new PageObjectManager(page);
-    const cartPage = this.poManager.getCartPage();
+    const cartPage = await this.poManager.getCartPage();
     await cartPage.VerifyProductIsDisplayed(productName);
     await cartPage.Checkout();
 });
 When('Enter additional details and place the order', async function () {
     // Verifying the order
     // const poManager = new PageObjectManager(page);
-    const ordersReviewPage = this.poManager.getOrdersReviewPage();
+    const ordersReviewPage = await this.poManager.getOrdersReviewPage();
     await ordersReviewPage.searchCountryAndSelect("ind", "India");
     const orderId = await ordersReviewPage.SubmitAndGetOrderId();
     console.log(orderId);
@@ -42,7 +44,7 @@ Then('Verify order is present in the OrderHistory page', async function () {
     // Validating the order
     // const poManager = new PageObjectManager(page);
     await this.dashboardPage.navigateToOrders();
-    const ordersHistoryPage = this.poManager.getOrdersHistoryPage();
+    const ordersHistoryPage = await this.poManager.getOrdersHistoryPage();
     await ordersHistoryPage.searchOrderAndSelect(orderId);
     expect(orderId.includes(await ordersHistoryPage.getOrderId())).toBeTruthy();
 });
