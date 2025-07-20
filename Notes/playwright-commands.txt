@@ -110,3 +110,7 @@ Running BDD cucumber Scenarios through "cucumber.js" file
 To run multiple cucumber feature files with their respective different step definitions and respective different hook files we are using below commands
 1) npm run test:EcommerceApp
 2) npm run test:ErrorValidation
+-------------------------------------------------------------------------------
+To run a specific cucumber test case which is having a specific Tag mentioned in the feature file we use the below command
+1) npx cucumber-js --tags "@ErrorValidation" --exit
+2) Secon way is we can add tags inside our cucumber.js file

@@ -18,6 +18,7 @@ module.exports = {
       'src/bdd/stepDefinitions/ErrorValidationSteps.js',
       'src/bdd/support/ErrorValidationHooks.js'
     ],
+    tags: '@ErrorValidation',
     format: ['progress', 'html:reports/cucumber-report.html']
   }
 };
