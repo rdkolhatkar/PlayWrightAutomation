@@ -106,3 +106,7 @@ Running BDD cucumber Scenarios through "cucumber.js" file
 2) Add command inside "Scripts" section inside "package.json" ->   "test:bdd": "cucumber-js"
 3) Run command from terminal ->  npm run test:bdd
 4) npm run test:bdd --exit
+------------------------------------------------------------------------------
+To run multiple cucumber feature files with their respective different step definitions and respective different hook files we are using below commands
+1) npm run test:EcommerceApp
+2) npm run test:ErrorValidation

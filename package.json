@@ -10,7 +10,9 @@
     "newConfigFileTest": "npx playwright test --config=testPlayWright.config.js --project=chrome",
     "smoke": "npx playwright test UIBasictest.spec.js",
     "acceptance": "npx playwright test UIBasictest.spec.js",
-    "test:bdd": "cucumber-js"
+    "test:bdd": "cucumber-js --config=cucumber.config.js",
+    "test:EcommerceApp": "cucumber-js --profile EcommerceApp",
+    "test:ErrorValidation": "cucumber-js --profile ErrorValidation"
   },
   "keywords": [],
   "author": "",
