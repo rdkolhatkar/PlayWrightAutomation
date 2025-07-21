@@ -114,3 +114,7 @@ To run multiple cucumber feature files with their respective different step defi
 To run a specific cucumber test case which is having a specific Tag mentioned in the feature file we use the below command
 1) npx cucumber-js --tags "@ErrorValidation" --exit
 2) Secon way is we can add tags inside our cucumber.js file
+-------------------------------------------------------------------------------
+Running Parameterized cucumber tests.
+1) npm run test:Parameterization
+2) cucumber-js --profile Parameterization

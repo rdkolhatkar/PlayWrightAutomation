@@ -12,7 +12,8 @@
     "acceptance": "npx playwright test UIBasictest.spec.js",
     "test:bdd": "cucumber-js --config=cucumber.config.js",
     "test:EcommerceApp": "cucumber-js --profile EcommerceApp",
-    "test:ErrorValidation": "cucumber-js --profile ErrorValidation"
+    "test:ErrorValidation": "cucumber-js --profile ErrorValidation",
+    "test:Parameterization": "cucumber-js --profile Parameterization"
   },
   "keywords": [],
   "author": "",

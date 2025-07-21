@@ -20,6 +20,15 @@ module.exports = {
     ],
     tags: '@ErrorValidation',
     format: ['progress', 'html:reports/cucumber-report.html']
+  },
+    Parameterization: {
+    paths: ['src/bdd/features/ParameterizeTest.feature'],
+    require: [
+      'src/bdd/stepDefinitions/ParameterizedTestSteps.js',
+      'src/bdd/support/ParameterizedTestHooks.js'
+    ],
+    tags: '@Parameterization',
+    format: ['progress', 'html:reports/cucumber-report.html']
   }
 };
 
