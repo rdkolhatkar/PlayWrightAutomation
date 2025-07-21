@@ -118,3 +118,14 @@ To run a specific cucumber test case which is having a specific Tag mentioned in
 Running Parameterized cucumber tests.
 1) npm run test:Parameterization
 2) cucumber-js --profile Parameterization
+-------------------------------------------------------------------------------
+Cucumber can run test scenarios in parallel but it cannot run two feature files in parallel.
+Command for running two Scenarios with Different tag & which are present in the same feature file in parallel.
+1) npx cucumber-js <Path to the feature file> --parallel <number of scenarios which you want run in parallel> --exit
+Example: npx cucumber-js src/bdd/features/test.feature --parallel 2 --exit
+---------------------------------------------------------------------------------
+To Generate Cucumber HTML reports we use below command
+1) npx cucumber-js src/bdd/features/test.feature --parallel 2 --exit --format html:cucumber-reports.html
+-----------------------------------------------------------------------------------
+Cucumber test retry option command
+1) npx cucumber-js -p EcommerceApp --retry 2

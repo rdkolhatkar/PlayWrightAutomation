@@ -3,6 +3,7 @@ module.exports = {
   default: {
     require: [],
     format: ['progress', 'html:reports/cucumber-report.html'],
+    retry: 2
   },
   EcommerceApp: {
     paths: ['src/bdd/features/EcommerceApp.feature'],
@@ -10,7 +11,8 @@ module.exports = {
       'src/bdd/stepDefinitions/HooksImplementationSteps.js',
       'src/bdd/support/EcommerceAppHooks.js'
     ],
-    format: ['progress', 'html:reports/cucumber-report.html']
+    format: ['progress', 'html:reports/cucumber-report.html'],
+    retry: 2
   },
   ErrorValidation: {
     paths: ['src/bdd/features/ErrorValidation.feature'],
@@ -19,7 +21,8 @@ module.exports = {
       'src/bdd/support/ErrorValidationHooks.js'
     ],
     tags: '@ErrorValidation',
-    format: ['progress', 'html:reports/cucumber-report.html']
+    format: ['progress', 'html:reports/cucumber-report.html'],
+    retry: 2
   },
     Parameterization: {
     paths: ['src/bdd/features/ParameterizeTest.feature'],
@@ -28,7 +31,8 @@ module.exports = {
       'src/bdd/support/ParameterizedTestHooks.js'
     ],
     tags: '@Parameterization',
-    format: ['progress', 'html:reports/cucumber-report.html']
+    format: ['progress', 'html:reports/cucumber-report.html'],
+    retry: 2
   }
 };
 
