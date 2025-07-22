@@ -129,3 +129,15 @@ To Generate Cucumber HTML reports we use below command
 -----------------------------------------------------------------------------------
 Cucumber test retry option command
 1) npx cucumber-js -p EcommerceApp --retry 2
+------------------------------------------------------------------------------------
+Run PlayWright tests in parallel on Azure Cloud Hosted browser
+1) Create one Azure Devops account using the link : https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account
+2) Subscribe the paid version for creating the CI/CD resources on Azure.
+3) Home -> Create a resource -> Marketplace -> Microsoft Playwright Testing(Preview) -> Create PlayWright Workspace
+4) Install Playwright Testing service package using command: npm init @azure/microsoft-playwright-testing
+5) Install Azure CLI in your machine
+6) Login with your subscription key and auth token 
+7) Step up the authentication for running the playwright tests
+8) Add region endpoint in your setup
+9) Run your test with Playwright service
+-----------------------------------------------------------------------------------
