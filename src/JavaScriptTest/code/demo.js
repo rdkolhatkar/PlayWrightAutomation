@@ -65,11 +65,37 @@ for(let l = 0; l <= 10; l++){
 let marks = Array(6); // Here we are declaring the length of an array now in next line we will add 6 values in the array by creating new object
 marks = new Array(20, 40, 35, 37, 50, 67);
 // Another way to declare array in JavaScript
-var nums = [1, 2, 3, 4, 5, 6, 7, 8];
+var nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 console.log(nums[0]); // calling the value from array nums which is at the zero'th index.
 console.log( "Length of nums array is " + nums.length); // Checking the length of array
 nums.push(64); //.push is the method in JavaScrip which is used for inserting new element in arrays at the last index
 console.log(nums);
 nums.pop(); //.pop() method is used for deleting the last element in the array
+// Break array into different parts of sub array
+console.log(nums.slice(3, 6)); //.slice(starting element, endine element) this method is used for creating sub arrays
 nums.unshift(55); //.unshift() method in JavaScrip which is used for inserting new element in arrays at the first index
 console.log(nums);
+nums.indexOf(6); // .indexOf() This method will give us the index of specific element
+// Check if certain element is present in the array or not
+nums.includes(120); // .includes() this method will check if 120 value is present in the given nums array or not
+// sum all the elemens prsent in array 
+var sum = 0;
+for(let i = 0; i < nums.length; i++){
+    sum = sum + nums[i]
+}
+console.log(sum);
+// reduce filter map
+let addition = nums.reduce((sum, number) => sum + number, 0);
+console.log(addition);
+// We have a given array hich contains different numbers and we have to filter the even numbers from that array & we have to create a new array containing those even numbers
+var score = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+var evenScore = [];
+for(let i=0; i<score.length; i++){
+    if(score[i] % 2 == 0){
+        evenScore.push(score[i]);
+    }
+}
+console.log(evenScore);
+// Now we will use the filter method for above use case
+let newFilteredScoreArray = score.filter(evenScoreValues => evenScoreValues % 2 == 0);
+console.log(newFilteredScoreArray);
