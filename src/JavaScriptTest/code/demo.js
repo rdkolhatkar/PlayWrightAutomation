@@ -99,3 +99,35 @@ console.log(evenScore);
 // Now we will use the filter method for above use case
 let newFilteredScoreArray = score.filter(evenScoreValues => evenScoreValues % 2 == 0);
 console.log(newFilteredScoreArray);
+// Map Function
+// From given array we have to create a new array of even numbers and we have to multiply the each element of that new array by 3 and print the result
+var value = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+let newEvenValue = value.filter(n => n%2==0);
+console.log(newEvenValue);
+let mappedValueArray = newEvenValue.map(n => n*3);
+console.log(mappedValueArray);
+// now we have to add each value of "mappedValueArray" using reduce method
+const sumValue = mappedValueArray.reduce((a,b) => a+b, 0);
+console.log(sumValue);
+// Now we will do chaining of all these methods with odd values
+var valueOne = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+let finalValueOne = valueOne.filter(n => n%2==1).map(n => n*5).reduce((a, b) => a+b, 0);
+console.log(finalValueOne);
+// Sorting of array of Strings and Numbers
+// Sorting of String Array
+var fruits = ["Banana", "Apple", "Mango", "Orange", "Dragon Fruit", "Coconut", "Pineapple", "Watermelon"];
+fruits.sort();
+console.log(fruits);
+// Sorting of Integer array
+var unsortedNumbers = [22, 33, 49, 52, 61, 87, 91, 12, 16, 8, 1];
+var sortedNumbers = unsortedNumbers.sort(
+    function(a,b){
+    return a-b
+}
+);
+console.log(sortedNumbers);
+// Anotherway of sorting by Fat operator
+console.log(unsortedNumbers.sort((a,b) => a-b)); // Bubble sort logic in recurssive manner
+// To reverse the sort order we can use the following code
+console.log(fruits.reverse()); // Now this method will print the fruits array in decending order
+console.log(unsortedNumbers.sort((a,b) => b-a)); // Now this method will print the unsortedNumbers Array in decending order
