@@ -131,3 +131,46 @@ console.log(unsortedNumbers.sort((a,b) => a-b)); // Bubble sort logic in recurss
 // To reverse the sort order we can use the following code
 console.log(fruits.reverse()); // Now this method will print the fruits array in decending order
 console.log(unsortedNumbers.sort((a,b) => b-a)); // Now this method will print the unsortedNumbers Array in decending order
+// Functions in JavaScript -> We can execute block of code by wrapping it inside a function and call that function with an object
+// adding two numbers
+function add(a, b){
+    return a + b;
+}
+let NumSum = add(2,3)
+console.log(NumSum);
+// Anonymus fuctions -> Functions which does not have any names, below is an exampe of anonymus function
+let sumOfIntegers = function(a,b){
+    return a+b;
+}
+console.log(sumOfIntegers(6,7));
+// Anotherway to declare annonymus function
+let sumOfNumbers = (b,c) => b+c;
+console.log(sumOfNumbers(9,1));
+// If var keyword variable is declared in global then it's scope will be global but if we declared it in function then we cannot use it outside the function
+// let keyword scope will be either global level or block level, if we declare let keyword inside the block of code then we cannot use the let keyword variable outside the block.
+// let and var can be re-initialized but we cannot reinitialize const keyword variable.
+// String methods in JavaScrips
+let day = 'Tuesday ';
+// find length of string
+console.log(day.length);  // Here space is also treated as one character
+// To get the sub string
+let subDay = day.slice(0, 3);
+// To access any character in the string
+console.log(day[3]);
+// To split the string into two parts we use below code based on certain character
+let splitDay = day.split("s");
+// Now to get the first part of the string we will ise it by index number
+console.log(splitDay[0]);
+console.log(splitDay[1]);
+// To trim left and right white spaces we use below code
+console.log(splitDay[1].length);
+console.log(splitDay[1].trim().length);
+// Suppose we got two numbers in string format and we want to see the difference between them then we will use below code
+let dayValueOne = '28';
+let dayValueTwo = '17';
+// Now we have to convert strings into integer
+let differenceValue = parseInt(dayValueOne) - parseInt(dayValueTwo);
+console.log(differenceValue);
+// Now if we have to convert numbers or integer value into strin then we will be using below code
+let NumJ = 234566;
+NumJ.toString();
