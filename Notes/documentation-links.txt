@@ -1,2 +1,24 @@
 PlayWright Documentation official page : https://playwright.dev/docs/intro
 Cucumber With JavaScript official documentation : https://github.com/cucumber/cucumber-js?tab=readme-ov-file
+----------------------------------------------------------------------------------------------------------------------
+PlayWright MCP Server - LLM Models & AI Integration
+The Playwright MCP (Model Context Protocol) is a server that leverages the Playwright framework to provide browser automation capabilities, primarily enabling large language models (LLMs) to interact with web pages. 
+Key aspects of Playwright MCP: 
+• LLM Integration: It allows LLMs to "see" and interact with web content through structured accessibility snapshots, eliminating the need for visual processing or screenshot-based approaches. 
+• Browser Automation: It utilizes Playwright's robust features to automate browser actions like navigating, clicking, typing, uploading files, and taking snapshots across various browser engines (Chromium, Firefox, WebKit). 
+• Structured Interaction: By providing LLMs with a structured representation of the web page's accessibility tree, the MCP facilitates more precise and deterministic interactions compared to pixel-based or visually-tuned methods. 
+• Use Cases: Playwright MCP is particularly relevant for scenarios involving AI agents, automated testing, and browser-based task automation where LLMs need to understand and manipulate web interfaces programmatically. 
+• Installation: It can be installed as a package and integrated with various development environments and tools, such as VS Code. 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GitHub Documentation Link
+1) https://github.com/microsoft/playwright-mcp
+-----------------------------------------------------------------------------------------------------------------------------------------
+Integrate PlayWright MCP into GitHub Copilot
+1) Create GitHub account and configure the GitHub Copilot with VS Code
+2) Open GitHub Copilot Chat and Navigate to 'Build With Agent Mode'
+3) Then Click on Configure Tools Option in the copilot chat window
+4) Then Click on 'Add MCP Server' Option
+5) Then Choose NPM Package as Installer
+6) Then Type '@playwright/mcp' This line in NPM installer and it will automatically install the MCP
+7) After installation is completed you will see the mcp.json file
+8) Refer the images in ImportantImagesPlaywrightMCP
